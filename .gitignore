@@ -1,0 +1,4 @@
+.idea/
+.vscode/
+*inventory.yml
+!example.inventory.yml

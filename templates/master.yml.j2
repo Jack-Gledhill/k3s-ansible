@@ -1,0 +1,23 @@
+node-name: {{ inventory_hostname_short }}
+node-label: {{ labels | list }}
+node-taint: {{ taints | list }}
+
+cluster-domain: {{ cluster.domain }}
+disable: {{ cluster.disable | list }}
+disable-cloud-controller: true
+tls-san: {{ cluster.tls_san | list }}
+secrets-encryption: true
+write-kubeconfig-mode: 0644
+
+cluster-init: true
+token: {{ cluster.token }}
+
+etcd-expose-metrics: true
+etcd-disable-snapshots: {{ cluster.etcd.snapshots.disabled }}
+etcd-snapshot-retention: {{ cluster.etcd.snapshots.retention }}
+etcd-snapshot-dir: {{ cluster.etcd.snapshots.directory }}
+
+etcd-s3: {{ cluster.etcd.s3.enabled }}
+etcd-s3-access-key: {{ cluster.etcd.s3.access_key }}
+etcd-s3-secret-key: {{ cluster.etcd.s3.secret_key }}
+etcd-s3-bucket: {{ cluster.etcd.s3.bucket }}
