@@ -8,7 +8,7 @@ all:
     taints: []
 
     cluster:
-      join_ip: {{ hostvars[groups['control_plane'][0]]['ansible_host'] }}
+      join_ip: "{{ hostvars[groups['control_plane'][0]]['ansible_host'] }}"
       token: Password123
 
   hosts:
