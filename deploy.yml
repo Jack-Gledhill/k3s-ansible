@@ -7,7 +7,7 @@
     # As per https://fluxcd.io/flux/installation, flux bootstrap is idempotent. Hence, it's safe to run this just using Ansible's command module
     - name: Bootstrap the Flux Git repository
       ansible.builtin.command:
-        cmd: "flux bootstrap github --token-auth --owner={{ flux.owner }} --repository={{ flux.repository }} --branch={{ flux.branch }} --path={{ flux.path }} --cluster-domain={{ cluster.domain }}"
+        cmd: "flux bootstrap github --token-auth --owner={{ flux.owner }} --repository={{ flux.repository }} --branch={{ flux.branch }} --path={{ flux.path }} --cluster-domain={{ cluster.domain }} --kubeconfig=/etc/rancher/k3s/k3s.yaml"
         stdin: "Y"
       environment:
         GITHUB_TOKEN: "{{ flux.pat }}"
