@@ -18,7 +18,6 @@
 - name: Uninstall k3s on Control Plane nodes
   hosts: control_plane
 
-  # There's no need to uninstall Flux here, as uninstalling K3s will do that for us
   tasks:
     - name: Check if the control plane uninstall script is present
       ansible.builtin.stat:

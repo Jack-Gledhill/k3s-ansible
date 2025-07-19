@@ -54,20 +54,3 @@
       register: res
       changed_when: res.rc == 0
       when: installed.rc != 0
-
-- name: Install Flux into the cluster
-  hosts: control_plane
-  run_once: true
-
-  tasks:
-    - name: Download FluxCD installation script
-      ansible.builtin.get_url:
-        url: https://fluxcd.io/install.sh
-        dest: /tmp/fluxcd.sh
-        mode: "0700" # U:RWX, G:N, O:N
-
-    - name: Run installation script
-      ansible.builtin.command:
-        cmd: bash /tmp/fluxcd.sh
-      register: res
-      changed_when: res.rc == 0

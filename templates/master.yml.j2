@@ -2,12 +2,17 @@ node-name: {{ inventory_hostname_short }}
 node-label: {{ labels | list }}
 node-taint: {{ taints | list }}
 
-cluster-domain: {{ cluster.domain }}
+cluster-domain: {{ cluster.network.domain }}
 disable: {{ cluster.disable | list }}
-disable-cloud-controller: true
-tls-san: {{ cluster.tls_san | list }}
+disable-cloud-controller: {{ cluster.disable_cloud_controller }}
+flannel-backend: {{ cluster.network.flannel_backend }}
+tls-san: {{ cluster.network.tls_san | list }}
 secrets-encryption: true
 write-kubeconfig-mode: 0644
+
+cluster-cidr: {{ cluster.network.pod_cidr }}
+service-cidr: {{ cluster.network.service_cidr }}
+cluster-dns: {{ cluster.network.cluster_dns }}
 
 cluster-init: true
 token: {{ cluster.token }}
