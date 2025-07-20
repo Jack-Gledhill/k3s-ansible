@@ -32,12 +32,6 @@
       changed_when: res.rc == 0
       when: installed.rc != 0
 
-    - name: Add Flux bash completions to login profile on all server nodes
-      ansible.builtin.lineinfile:
-        line: ". <(flux completion bash)"
-        path: /etc/profile
-        state: present
-
 - name: Run k3s as agent on agent nodes
   hosts: agents
 

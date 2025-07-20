@@ -1,0 +1,20 @@
+---
+- name: Setup and mount drives
+  hosts: all
+
+  tasks:
+    - name: Create filesystem on each drive
+      ansible.builtin.filesystem:
+        fstype: "{{ item.fstype }}"
+        dev: "{{ item.src }}"
+        state: present
+      with_items: "{{ drives }}"
+
+    - name: Mount drives to fstab
+      ansible.posix.mount:
+        path: "{{ item.path }}"
+        src: "{{ item.src }}"
+        fstype: "{{ item.fstype }}"
+        state: mounted
+        boot: true
+      with_items: "{{ drives }}"
