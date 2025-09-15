@@ -1,0 +1,11 @@
+---
+- name: Install Longhorn prerequisites
+  hosts: control_plane
+
+  tasks:
+    - name: Install required apt packages
+      ansible.builtin.apt:
+        name:
+          - open-iscsi
+          - nfs-common
+        state: present
