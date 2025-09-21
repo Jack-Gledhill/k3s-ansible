@@ -1,6 +1,7 @@
 ---
 - name: Uninstall k3s on agent nodes
   hosts: agents
+  any_errors_fatal: true
 
   tasks:
     - name: Check if the agent uninstall script is present
@@ -17,6 +18,7 @@
 
 - name: Uninstall k3s on Control Plane nodes
   hosts: control_plane
+  any_errors_fatal: true
 
   tasks:
     - name: Check if the control plane uninstall script is present

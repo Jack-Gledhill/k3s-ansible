@@ -1,5 +1,6 @@
 - name: Install and configure ArgoCD
   hosts: control_plane[0]
+  any_errors_fatal: true
 
   tasks:
     - name: Copy over manifests

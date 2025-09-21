@@ -1,6 +1,7 @@
 ---
 - name: Download k3s installation script
   hosts: all
+  any_errors_fatal: true
 
   tasks:
     - name: Download k3s installation script
@@ -17,6 +18,7 @@
 
 - name: Run k3s as server on Control Plane nodes
   hosts: control_plane
+  any_errors_fatal: true
 
   tasks:
     - name: Check if k3s is installed
@@ -35,6 +37,7 @@
 
 - name: Run k3s as agent on agent nodes
   hosts: agents
+  any_errors_fatal: true
 
   tasks:
     - name: Check if k3s is installed

@@ -7,11 +7,6 @@ all:
     labels: []
     taints: []
 
-    drives:
-      - path: /mnt/storage
-        src: /dev/sdb
-        fstype: ext4
-
     cluster:
       join_ip: "{{ hostvars[groups['control_plane'][0]]['ansible_host'] }}"
       token: Password123
