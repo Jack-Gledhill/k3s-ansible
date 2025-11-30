@@ -2,3 +2,4 @@
 - import_playbook: setup.yml
 - import_playbook: install.yml
 - import_playbook: argocd.yml
+- import_playbook: node-exporter.yml

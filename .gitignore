@@ -2,3 +2,4 @@
 .vscode/
 *inventory.yml
 !example.inventory.yml
+.lock
